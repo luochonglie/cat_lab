@@ -37,6 +37,7 @@ public class AcmeFinancialBackOfficeApplication {
 	private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	@Autowired RestTemplate restTemplate;
+
 	@Value("${service3.address:localhost:8083}") String serviceAddress3;
 	@Value("${service4.address:localhost:8084}") String serviceAddress4;
 	private static final int MOCK_PORT = 8765;
@@ -66,6 +67,7 @@ public class AcmeFinancialBackOfficeApplication {
 		log.info("Got response from Acme Financial's Customer Service [{}]", service4);
 		return String.format("Hello from Acme Financial's Backend service. Calling Acme Financial's Account Service [%s] and then Customer Service [%s]", service3, service4);
 	}
+
 
 	@RequestMapping("/readtimeout")
 	public String connectionTimeout() throws InterruptedException {
